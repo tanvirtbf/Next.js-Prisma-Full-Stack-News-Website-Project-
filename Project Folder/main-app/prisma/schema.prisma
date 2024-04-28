@@ -93,3 +93,9 @@ model subscribers {
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
+
+model policies {
+  id       Int    @id @default(autoincrement())
+  long_des String @db.LongText
+  type     String @db.VarChar(50)
+}
