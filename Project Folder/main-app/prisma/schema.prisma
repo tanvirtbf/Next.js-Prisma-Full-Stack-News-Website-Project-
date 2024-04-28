@@ -86,3 +86,10 @@ model socials {
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
+
+model subscribers {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(100)
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
