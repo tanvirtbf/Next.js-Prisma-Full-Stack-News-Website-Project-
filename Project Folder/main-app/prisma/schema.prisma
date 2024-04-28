@@ -58,9 +58,19 @@ model news_list {
   catId      Int
 
   comments   comments[]
-  
+
   categories categories @relation(fields: [catId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model categories {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100) @unique
+
+  news_list news_list[]
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0) @updatedAt
 }
