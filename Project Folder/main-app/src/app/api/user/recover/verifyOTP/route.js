@@ -12,12 +12,12 @@ export async function POST(req,res){
     if(count === 1){
       return NextResponse.json({
         status:'success',
-        data: count,
+        data: 'Valid OTP Code',
       })
     }else{
       return NextResponse.json({
         status:'fail',
-        data: 'No User Found'
+        data: 'Invalid OTP Code'
       })
     }
 
