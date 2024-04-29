@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(req,res){
   try {
-    let {searchParams} = new Url(req.url)
+    const prisma = new PrismaClient();
+    let {searchParams} = new URL(req.url)
     let email = searchParams.get('email')
 
     //User Count
-    const prisma = new PrismaClient();
-    const count = prisma.users.count({
+    const count = await prisma.users.count({
       where:{email:email}
     })
     
