@@ -17,7 +17,7 @@ export async function POST(req, res) {
     } else {
       let token = await CreateToken(reqBody["email"], reqBody["id"]);
       let expireDuration = new Date(Date.now() + 24 * 60 * 60 * 1000);
-      let cookieString = `token=${token};expire=${expireDuration};path=/`;
+      let cookieString = `token=${token};expires=${expireDuration};path=/`;
       return NextResponse.json(
         {
           status: "Success",
