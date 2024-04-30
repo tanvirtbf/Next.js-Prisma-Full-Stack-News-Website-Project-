@@ -5,10 +5,10 @@ export async function POST(req,res){
   try {
     const prisma = new PrismaClient();
     let reqBody = await req.json();
-    let result = await prisma.users.update({
-      where:{email: reqBody['email']},
-      data: {password: reqBody['password'], otp: reqBody['otp']}
+    let count = await prisma.users.count({
+      where:{otp: reqBody['otp'],email:reqBody['email']}
     })
+    if()
     return NextResponse.json({
       status:'success',
       data: result,
